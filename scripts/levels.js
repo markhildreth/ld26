@@ -24,6 +24,7 @@ define(function() {
 			g.level.height = level.length;
 			g.level.width = level[0].length;
 			g.level.teleporters = [];
+			g.level.trapsRemaining = 0;
 			var levelData = g.level.data = {};
 
 			for (var yIndex = 0; yIndex < level.length; yIndex = yIndex + 1) {
@@ -48,6 +49,14 @@ define(function() {
 						g.level.teleporters.push({x: x, y: y});
 					} else {
 						levelInfo.type = 'air';
+					}
+
+					if (levelInfo.type === 'spring' ||
+						levelInfo.type === 'trap' ||
+						levelInfo.type == 'rickity' ||
+						levelInfo.type == 'teleporter')
+					{
+						g.level.trapsRemaining = g.level.trapsRemaining + 1;
 					}
 				}
 			}

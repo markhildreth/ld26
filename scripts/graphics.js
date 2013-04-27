@@ -40,11 +40,11 @@ define(function() {
 			c.ctx.restore();
 		},
 
-		drawText : function(ctx, text, dest) {
-			ctx.textBaseline = "top";
-			ctx.font = "10pt Ariel";
-			ctx.fillStyle = "white";
-			ctx.fillText(text, dest[0], dest[1]);
+		drawText : function(c, text, dest) {
+			c.ctx.textBaseline = "top";
+			c.ctx.font = "16pt Calibri";
+			c.ctx.fillStyle = "white";
+			c.ctx.fillText(text, dest[0], dest[1]);
 		}
 	};
 });

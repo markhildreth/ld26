@@ -53,7 +53,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 		},
 
 		draw : function(g, ctx, ass) {
-			gfx.clear(ctx, "white");
+			gfx.clear(ctx, "black");
 
 			var OFFSET = 50;
 
@@ -68,6 +68,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					
 				var assetUrl = LEVEL_ASSET_MAP[info.type];
 				gfx.draw(ctx, assetUrl, dest);
+				gfx.drawText(ctx, "Traps Left: " + g.level.trapsRemaining, [0, 0]);
 			}
 
 			for (var y = 0; y < g.level.height; y = y + 1) {
@@ -110,10 +111,12 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					} else {
 						g.player.x = g.player.x + 1;
 					}
+					g.level.trapsRemaining = g.level.trapsRemaining - 1;
 					info.type = 'ground';
 				} else if (info.type === 'trap') {
 					g.player.y = g.player.y - 1;
 					info.type = 'ground';
+					g.level.trapsRemaining = g.level.trapsRemaining - 1;
 				} else if (info.type === 'rickity') {
 					if (g.actions.moveLeft) {
 						g.player.x = g.player.x - 1;
@@ -121,6 +124,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 						g.player.x = g.player.x + 1;
 					}
 					info.type = 'air';
+					g.level.trapsRemaining = g.level.trapsRemaining - 1;
 				} else if (info.type ===  'teleporter') {
 					var teleporter1 = g.level.teleporters[0];
 					var teleporter2 = g.level.teleporters[1];
@@ -134,6 +138,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 						g.player.x = teleporter1.x;
 						g.player.y = teleporter1.y;
 					}
+					g.level.trapsRemaining = g.level.trapsRemaining - 2;
 				} else if (info.type === 'air') {
 					g.player.y = g.player.y - 1;
 				}
