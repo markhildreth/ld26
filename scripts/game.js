@@ -1,4 +1,4 @@
-define(['graphics', 'assets'], function(gfx, assets) {
+define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 	"use strict";
 
 	var G2C2D = function(d) {
@@ -14,32 +14,7 @@ define(['graphics', 'assets'], function(gfx, assets) {
 
 		create : function () {
 			var g = {
-				level : [
-					[
-						{type : 'ground'},
-						{type : 'ground'},
-						{type : 'spring', active: false},
-						{type : 'ground'},
-						{type : 'ground'},
-						{type : 'ground'},
-					],
-					[
-						{type : 'air'},
-						{type : 'air'},
-						{type : 'air'},
-						{type : 'air'},
-						{type : 'air'},
-						{type : 'air'},
-					],
-					[
-						{type : 'air'},
-						{type : 'air'},
-						{type : 'air'},
-						{type : 'ground'},
-						{type : 'air'},
-						{type : 'air'},
-					],
-				],
+				level : null,
 				player : {
 					x : 0,
 					y : 0
@@ -49,6 +24,7 @@ define(['graphics', 'assets'], function(gfx, assets) {
 					moveRight : false,
 				},
 			};
+			levels.loadLevel(g, '0');
 
 			return g;
 		},
@@ -56,8 +32,8 @@ define(['graphics', 'assets'], function(gfx, assets) {
 		draw : function(g, ctx) {
 			gfx.clear(ctx);
 
-			var HEIGHT = 3;
-			var WIDTH = 6; 
+			var HEIGHT = 4;
+			var WIDTH = 10; 
 
 			var OFFSET = 50;
 
@@ -114,6 +90,7 @@ define(['graphics', 'assets'], function(gfx, assets) {
 						g.player.x = g.player.x + 1;
 					}
 				} else if (info.type === 'air') {
+					console.log(g.player.x + ", " + g.player.y + ": Found air");
 					g.player.y = g.player.y - 1;
 				}
 
