@@ -32,6 +32,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			assets.loadAsset(ass, GROUND_URL);
 
 			assets.loadAsset(ass, 'media/robot_face.png');
+			assets.loadAsset(ass, 'media/man_face.png');
 
 			assets.loadAsset(ass, 'media/spring.png');
 			assets.loadAsset(ass, 'media/rickity.png');

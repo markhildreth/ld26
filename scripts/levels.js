@@ -1,7 +1,7 @@
 define(function() {
-	var OLD_MAN = {
-		name : 'Old Man',
-		face : 'media/robot_face.png',
+	var MAN = {
+		name : 'Man',
+		face : 'media/man_face.png',
 	};
 
 	var ROBOT = {
@@ -12,7 +12,7 @@ define(function() {
 	var levels = [
 		{
 			introPlot : [
-				{c : OLD_MAN, t : "What's up?"},
+				{c : MAN, t : "What's up?"},
 				{c : ROBOT, t : "NM, you?"},
 			],
 			data : [
@@ -22,13 +22,13 @@ define(function() {
 				'__S_________________',
 			],
 			outroPlot : [
-				{c : OLD_MAN, t : "So you think you're something special?"},
+				{c : MAN, t : "So you think you're something special?"},
 				{c : ROBOT, t : "Yeah, what's your point?"},
 			],
 		},
 		{
 			introPlot : [
-				{c : OLD_MAN, t : "Alright smart guy, figure this one out"},
+				{c : MAN, t : "Alright smart guy, figure this one out"},
 			],
 			data : [
 				'     _RRR_          ',
