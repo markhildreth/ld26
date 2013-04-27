@@ -68,7 +68,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 		},
 
 		drawPlot : function(g, ctx) {
-			var currentPlot = g.level.introPlot[g.level.plotState];
+			var currentPlot = g.level.introPlot[g.level.introPlotState];
 
 			// TODO: Make this better
 			gfx.drawRectangle(ctx, PLOT_WINDOW_CORNER, PLOT_WINDOW_WIDTH, PLOT_WINDOW_HEIGHT, "white");

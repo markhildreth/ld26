@@ -46,11 +46,19 @@ define(['graphics', 'levels', 'game_draw', 'game_update',], function(gfx, levels
 
 		update : function(g, delta) {
 			if (g.actions.moveLeft) {
-				game_update.gamePlayerMoveLeft(g);
+				if (g.state === 'intro') {
+					game_update.reversePlot(g);
+				} else if (g.state === 'game') {
+					game_update.playerMoveLeft(g);
+				}
 			}
 
 			if (g.actions.moveRight) {
-				game_update.gamePlayerMoveRight(g);
+				if (g.state === 'intro') {
+					game_update.advancedPlot(g);
+				} else if (g.state === 'game') {
+					game_update.playerMoveRight(g);
+				}
 			}
 
 			game_update.playerAutoMove(g);

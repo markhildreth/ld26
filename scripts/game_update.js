@@ -1,12 +1,26 @@
 define(function() {
 	return {
-		gamePlayerMoveLeft : function(g) {
+		reversePlot : function(g) {
+			if (g.level.introPlotState > 0) {
+				g.level.introPlotState = g.level.introPlotState - 1;
+			}
+		},
+
+		advancedPlot : function(g) {
+			if (g.level.introPlotState === g.level.introPlot.length - 1) {
+				g.state = 'game';
+			} else {
+				g.level.introPlotState = g.level.introPlotState + 1;
+			}
+		},
+
+		playerMoveLeft : function(g) {
 			if (g.player.x > 0) {
 				g.player.x = g.player.x - 1;
 			}
 		},
 
-		gamePlayerMoveRight : function(g) {
+		playerMoveRight : function(g) {
 			if (g.player.x < g.level.width - 1) {
 				g.player.x = g.player.x + 1;
 			}

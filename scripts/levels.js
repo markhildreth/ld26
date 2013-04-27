@@ -46,7 +46,7 @@ define(function() {
 			g.level.trapsRemaining = 0;
 			g.state = 'intro';
 			g.level.introPlot = level.introPlot;
-			g.level.plotState = 0;
+			g.level.introPlotState = 0;
 			var levelData = g.level.data = {};
 
 			for (var yIndex = 0; yIndex < height; yIndex = yIndex + 1) {
