@@ -15,6 +15,11 @@ define(function() {
 			c.ctx.fillRect(0, 0, c.canvas.width, c.canvas.height);
 		},
 
+		drawRectangle : function(c, dest, width, height, color) {
+			c.ctx.fillStyle = color;
+			c.ctx.fillRect(dest[0], dest[1], width, height);
+		},
+
 		drawSquare : function(c, dest, width, color) {
 			var halfWidth = width / 2;
 			var x = dest[0] - halfWidth;

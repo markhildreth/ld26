@@ -42,7 +42,7 @@ define(['graphics', 'assets'], function(gfx, assets) {
 				],
 				player : {
 					x : 0,
-					y : 1
+					y : 0
 				},
 				actions : {
 					moveLeft : false,
@@ -71,8 +71,8 @@ define(['graphics', 'assets'], function(gfx, assets) {
 					return;
 				}
 
-				var dest = G2C2D([x * OFFSET + 25, y * 50 + 25])
-				gfx.drawSquare(ctx, dest, OFFSET, color);
+				var dest = G2C2D([x * OFFSET, y * OFFSET + (OFFSET / 2)])
+				gfx.drawRectangle(ctx, dest, OFFSET, OFFSET / 2, color);
 			}
 
 			for (var y = 0; y < HEIGHT; y = y + 1) {
@@ -82,8 +82,8 @@ define(['graphics', 'assets'], function(gfx, assets) {
 				}
 			}
 
-			var playerDest = G2C2D([g.player.x * OFFSET + 25, g.player.y * 50 + 25])
-			gfx.drawSquare(ctx, playerDest, OFFSET - 20, "blue");
+			var playerDest = G2C2D([g.player.x * OFFSET, g.player.y * OFFSET + OFFSET])
+			gfx.drawRectangle(ctx, playerDest, OFFSET, OFFSET / 2, "blue");
 		},
 
 		events : function(g) {
@@ -103,7 +103,7 @@ define(['graphics', 'assets'], function(gfx, assets) {
 				g.player.x = g.player.x + 1
 			}
 
-			var info = g.level[g.player.y - 1][g.player.x];
+			var info = g.level[g.player.y][g.player.x];
 			while (info.type !== 'ground') {
 				if (info.type === 'spring') {
 					info.type = 'ground';
@@ -117,7 +117,7 @@ define(['graphics', 'assets'], function(gfx, assets) {
 					g.player.y = g.player.y - 1;
 				}
 
-				info = g.level[g.player.y - 1][g.player.x];
+				info = g.level[g.player.y][g.player.x];
 			}
 
 			g.actions.moveLeft = false;
