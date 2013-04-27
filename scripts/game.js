@@ -42,6 +42,8 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					color = "green";
 				} else if (info.type === 'trap') {
 					color = "red";
+				} else if (info.type === 'rickity') {
+					color = "yellow";
 				} else {
 					return;
 				}
@@ -81,16 +83,23 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 			var info = g.level.data[g.player.y][g.player.x];
 			while (info.type !== 'ground') {
 				if (info.type === 'spring') {
-					info.type = 'ground';
 					g.player.y = g.player.y + 2;
 					if (g.actions.moveLeft) {
 						g.player.x = g.player.x - 1;
 					} else {
 						g.player.x = g.player.x + 1;
 					}
+					info.type = 'ground';
 				} else if (info.type === 'trap') {
 					g.player.y = g.player.y - 1;
 					info.type = 'ground';
+				} else if (info.type === 'rickity') {
+					if (g.actions.moveLeft) {
+						g.player.x = g.player.x - 1;
+					} else {
+						g.player.x = g.player.x + 1;
+					}
+					info.type = 'air';
 				} else if (info.type === 'air') {
 					g.player.y = g.player.y - 1;
 				}

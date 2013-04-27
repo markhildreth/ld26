@@ -7,7 +7,7 @@ define(function() {
 			'__S_____________',
 		],
 		'1' : [
-			'     _          ',
+			'     _RRR_      ',
 			'                ',
 			'   _ST___       ',
 			'                ',
@@ -40,6 +40,8 @@ define(function() {
 						levelInfo.type = 'spring';
 					} else if (typeChar === 'T') {
 						levelInfo.type = 'trap';
+					} else if (typeChar === 'R') {
+						levelInfo.type = 'rickity';
 					} else {
 						levelInfo.type = 'air';
 					}
