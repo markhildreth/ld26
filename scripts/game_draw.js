@@ -1,6 +1,6 @@
 define(['assets', 'graphics'], function(assets, gfx) {
 	var G2C2D = function(d) {
-		return [d[0], 600 - d[1]]
+		return [d[0], 600 - d[1]];
 	};
 
 	var PLOT_WINDOW_CORNER = [200, 100];
@@ -14,7 +14,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 		'spring' : 'media/spring.png',
 		'rickity' : 'media/rickity.png',
 		'trap' : 'media/trap.png',
-		'teleporter' : 'media/teleporter.png',
+		'teleporter' : 'media/teleporter.png'
 	};
 
 	var SHOULD_DRAW_GROUND = {
@@ -22,7 +22,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 		'spring' : true,
 		'rickity' : false,
 		'teleporter' : true,
-		'trap' : false,
+		'trap' : false
 	};
 
 
@@ -45,7 +45,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			var OFFSET = 50;
 
 			var drawArea = function(x, y, info) {
-				var dest = G2C2D([x * OFFSET + (OFFSET / 2), y * OFFSET + (OFFSET / 2)])
+				var dest = G2C2D([x * OFFSET + (OFFSET / 2), y * OFFSET + (OFFSET / 2)]);
 				
 				if (SHOULD_DRAW_GROUND[info.type]) {
 					gfx.draw(ctx, GROUND_URL, dest);
@@ -56,7 +56,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 				var assetUrl = LEVEL_ASSET_MAP[info.type];
 				gfx.draw(ctx, assetUrl, dest);
 				gfx.drawText(ctx, "Traps Left: " + g.level.trapsRemaining, [0, 0]);
-			}
+			};
 
 			for (var y = 0; y < g.level.height; y = y + 1) {
 				for (var x = 0; x < g.level.width; x = x + 1) {
@@ -67,7 +67,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 				}
 			}
 
-			var playerDest = G2C2D([g.player.x * OFFSET + (OFFSET / 2), g.player.y * OFFSET + (OFFSET / 2)])
+			var playerDest = G2C2D([g.player.x * OFFSET + (OFFSET / 2), g.player.y * OFFSET + (OFFSET / 2)]);
 			gfx.draw(ctx, ROBOT_URL, playerDest);
 		},
 
@@ -85,6 +85,6 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			gfx.draw(ctx, currentPlot.c.face, faceDest);
 			gfx.drawText(ctx, currentPlot.c.name + ":", [PLOT_WINDOW_CORNER[0] + 170, PLOT_WINDOW_CORNER[1] + 20], "black");
 			gfx.drawText(ctx, currentPlot.t, [PLOT_WINDOW_CORNER[0] + 200, PLOT_WINDOW_CORNER[1] + 50], "black");
-		},
+		}
 	};
 });

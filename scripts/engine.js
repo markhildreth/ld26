@@ -23,19 +23,22 @@ define(['graphics', 'assets', 'events'], function(gfx, assets, events) {
 				var eventLookup = game.events(g);
 
 				events.each(function(x) {
-					if (x['type'] === 'keydown') {
-						var keyLookup = eventLookup['keydown'];
+					var keyLookup;
+					var keyEvent;
+
+					if (x.type === 'keydown') {
+						keyLookup = eventLookup.keydown;
 						if (keyLookup) {
-							var keyEvent = keyLookup[x['key']];
+							keyEvent = keyLookup[x.key];
 							if (keyEvent) {
 								keyEvent(g);
 							}
 						}
 					}
-					if (x['type'] === 'keyup') {
-						var keyLookup = eventLookup['keyup'];
+					if (x.type === 'keyup') {
+						keyLookup = eventLookup.keyup;
 						if (keyLookup) {
-							var keyEvent = keyLookup[x['key']];
+							keyEvent = keyLookup[x.key];
 							if (keyEvent) {
 								keyEvent(g);
 							}

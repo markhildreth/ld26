@@ -1,4 +1,4 @@
-define(['graphics', 'levels', 'game_draw', 'game_update',], function(gfx, levels, game_draw, game_update) {
+define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels, game_draw, game_update) {
 	"use strict";
 
 	var KEY_LEFT = 37,
@@ -18,8 +18,8 @@ define(['graphics', 'levels', 'game_draw', 'game_update',], function(gfx, levels
 				},
 				actions : {
 					moveLeft : false,
-					moveRight : false,
-				},
+					moveRight : false
+				}
 			};
 			levels.loadLevel(g, 0);
 

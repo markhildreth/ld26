@@ -10,11 +10,11 @@ define(function() {
 			var asset = {
 				img : new Image(),
 				width : 50,
-				height : 50,
+				height : 50
 			};
 			ass[imageUrl] = asset;
 			asset.img.src = imageUrl;
-		},
+		}
 	};
 			/*
 			loadImage : function(name, imageUrl, sourceX, sourceY, width, height) {

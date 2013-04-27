@@ -1,46 +1,46 @@
 define(function() {
 	var MAN = {
 		name : 'Man',
-		face : 'media/man_face.png',
+		face : 'media/man_face.png'
 	};
 
 	var ROBOT = {
 		name : 'Robot',
-		face : 'media/robot_face.png',
+		face : 'media/robot_face.png'
 	};
 
 	var levels = [
 		{
 			introPlot : [
 				{c : MAN, t : "What's up?"},
-				{c : ROBOT, t : "NM, you?"},
+				{c : ROBOT, t : "NM, you?"}
 			],
 			data : [
 				'                    ',
 				'   _                ',
 				'                    ',
-				'__S_________________',
+				'__S_________________'
 			],
 			outroPlot : [
 				{c : MAN, t : "So you think you're something special?"},
-				{c : ROBOT, t : "Yeah, what's your point?"},
-			],
+				{c : ROBOT, t : "Yeah, what's your point?"}
+			]
 		},
 		{
 			introPlot : [
-				{c : MAN, t : "Alright smart guy, figure this one out"},
+				{c : MAN, t : "Alright smart guy, figure this one out"}
 			],
 			data : [
 				'     _RRR_          ',
 				' E                  ',
 				'   _ST___           ',
 				'                    ',
-				'__S____S______E_____',
+				'__S____S______E_____'
 			],
 			outroPlot : [
-				{c : ROBOT, t : 'VICTORY!'},
-			],
-		},
+				{c : ROBOT, t : 'VICTORY!'}
+			]
+		}
 	];
 
 	return {
@@ -94,5 +94,5 @@ define(function() {
 				}
 			}
 		}
-	}
+	};
 });

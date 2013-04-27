@@ -6,8 +6,8 @@ define(function() {
 			return {
 				canvas : canvas,
 				ctx : canvas.getContext('2d'),
-				assets : ass,
-			}
+				assets : ass
+			};
 		},
 
 		clear : function(c, color) {

@@ -81,6 +81,6 @@ define(function() {
 
 				info = g.level.data[g.player.y][g.player.x];
 			}
-		},
-	}
+		}
+	};
 });
