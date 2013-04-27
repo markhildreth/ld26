@@ -1,41 +1,45 @@
 define(function() {
-	var levels = {
-		'0' : [
-			'                ',
-			'   _            ',
-			'                ',
-			'__S_____________',
-		],
-		'1' : [
-			'     _RRR_      ',
-			' E              ',
-			'   _ST___       ',
-			'                ',
-			'__S____S______E_',
-		],
-	}
+	var levels = [
+		{
+			data : [
+				'                ',
+				'   _            ',
+				'                ',
+				'__S_____________',
+			],
+		},
+		{
+			data : [
+				'     _RRR_      ',
+				' E              ',
+				'   _ST___       ',
+				'                ',
+				'__S____S______E_',
+			],
+		},
+	];
 
 	return {
-		loadLevel : function(g, levelName) {
-			var level = levels[levelName];
-			var height = level.length;
+		loadLevel : function(g, levelNumber) {
+			var level = levels[levelNumber];
+			var height = level.data.length;
+			var width = level.data[0].length;
 
 			g.level = {};
-			g.level.height = level.length;
-			g.level.width = level[0].length;
+			g.level.height = height;
+			g.level.width = width;
 			g.level.teleporters = [];
 			g.level.trapsRemaining = 0;
 			var levelData = g.level.data = {};
 
-			for (var yIndex = 0; yIndex < level.length; yIndex = yIndex + 1) {
-				var width = level[yIndex].length;
+			for (var yIndex = 0; yIndex < height; yIndex = yIndex + 1) {
 				var y = height - yIndex - 1;
 				levelData[y] = {};
 
 				for (var x = 0; x < width; x = x + 1) {
 					var levelInfo = levelData[y][x] = {};
 
-					var typeChar = level[yIndex][x];
+					var typeChar = level.data[yIndex][x];
 					if (typeChar === '_') {
 						levelInfo.type = 'ground';
 					} else if (typeChar === 'S') {
