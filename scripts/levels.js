@@ -1,10 +1,10 @@
 define(function() {
 	var levels = {
 		'0' : [
-			'          ',
-			'   _      ',
-			'          ',
-			'__S_______',
+			'                ',
+			'   _            ',
+			'                ',
+			'__S_____________',
 		],
 	}
 
@@ -14,13 +14,17 @@ define(function() {
 			var height = level.length;
 
 			g.level = {};
+			g.level.height = level.length;
+			g.level.width = level[0].length;
+			var levelData = g.level.data = {};
+
 			for (var yIndex = 0; yIndex < level.length; yIndex = yIndex + 1) {
 				var width = level[yIndex].length;
 				var y = height - yIndex - 1;
-				g.level[y] = {};
+				levelData[y] = {};
 
 				for (var x = 0; x < width; x = x + 1) {
-					var levelInfo = g.level[y][x] = {};
+					var levelInfo = levelData[y][x] = {};
 
 					var typeChar = level[yIndex][x];
 					if (typeChar === '_') {

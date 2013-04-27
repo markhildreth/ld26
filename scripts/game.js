@@ -32,9 +32,6 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 		draw : function(g, ctx) {
 			gfx.clear(ctx);
 
-			var HEIGHT = 4;
-			var WIDTH = 10; 
-
 			var OFFSET = 50;
 
 			var drawArea = function(x, y, info) {
@@ -51,9 +48,9 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 				gfx.drawRectangle(ctx, dest, OFFSET, OFFSET / 2, color);
 			}
 
-			for (var y = 0; y < HEIGHT; y = y + 1) {
-				for (var x = 0; x < WIDTH; x = x + 1) {
-					var type = g.level[y][x];
+			for (var y = 0; y < g.level.height; y = y + 1) {
+				for (var x = 0; x < g.level.width; x = x + 1) {
+					var type = g.level.data[y][x];
 					drawArea(x, y, type);
 				}
 			}
@@ -65,21 +62,21 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 		events : function(g) {
 			var lookup = {};
 			var keydown = lookup.keydown = {};
-			keydown[KEY_LEFT] = function(g) { g.actions.moveLeft = true; };
+			keydown[KEY_LEFT] = function(g) {g.actions.moveLeft = true; };
 			keydown[KEY_RIGHT] = function(g) { g.actions.moveRight = true; };
 			return lookup;
 		},
 
 		update : function(g, delta) {
-			if (g.actions.moveLeft) {
+			if (g.actions.moveLeft && g.player.x > 0) {
 				g.player.x = g.player.x - 1
 			}
 
-			if (g.actions.moveRight) { 
+			if (g.actions.moveRight && g.player.x < g.level.width - 1) { 
 				g.player.x = g.player.x + 1
 			}
 
-			var info = g.level[g.player.y][g.player.x];
+			var info = g.level.data[g.player.y][g.player.x];
 			while (info.type !== 'ground') {
 				if (info.type === 'spring') {
 					info.type = 'ground';
@@ -94,7 +91,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					g.player.y = g.player.y - 1;
 				}
 
-				info = g.level[g.player.y][g.player.x];
+				info = g.level.data[g.player.y][g.player.x];
 			}
 
 			g.actions.moveLeft = false;
