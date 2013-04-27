@@ -70,7 +70,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 			g.actions.moveLeft = false;
 			g.actions.moveRight = false;
 
-			if (g.state === 'game' && g.level.trapsRemaining === 0) {
+			if (g.state === 'game' && g.level.trapsRemaining === 0 && g.animation === null) {
 				g.state = 'outro';
 				g.plotState = 0;
 			}
