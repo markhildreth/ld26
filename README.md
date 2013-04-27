@@ -1,4 +1,4 @@
-ld26
+ld48
 ====
 
-Ludum Dare 26
+Ludum Dare 48
