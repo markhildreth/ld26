@@ -1,6 +1,18 @@
 define(function() {
+	var OLD_MAN = {
+		name : 'Old Man',
+	};
+
+	var ROBOT = {
+		name : 'Robot',
+	};
+
 	var levels = [
 		{
+			introPlot : [
+				{c : OLD_MAN, t : "What's up?"},
+				{c : ROBOT, t : "NM, you?"},
+			],
 			data : [
 				'                ',
 				'   _            ',
@@ -9,6 +21,8 @@ define(function() {
 			],
 		},
 		{
+			introPlot : [
+			],
 			data : [
 				'     _RRR_      ',
 				' E              ',
@@ -30,6 +44,9 @@ define(function() {
 			g.level.width = width;
 			g.level.teleporters = [];
 			g.level.trapsRemaining = 0;
+			g.introPlot = level.introPlot;
+			g.state = 'intro';
+			g.plotState = 0;
 			var levelData = g.level.data = {};
 
 			for (var yIndex = 0; yIndex < height; yIndex = yIndex + 1) {
