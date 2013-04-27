@@ -6,6 +6,13 @@ define(function() {
 			'                ',
 			'__S_____________',
 		],
+		'1' : [
+			'     _          ',
+			'                ',
+			'   _ST_         ',
+			'                ',
+			'__S____S________',
+		],
 	}
 
 	return {
@@ -31,6 +38,8 @@ define(function() {
 						levelInfo.type = 'ground';
 					} else if (typeChar === 'S') {
 						levelInfo.type = 'spring';
+					} else if (typeChar === 'T') {
+						levelInfo.type = 'trap';
 					} else {
 						levelInfo.type = 'air';
 					}

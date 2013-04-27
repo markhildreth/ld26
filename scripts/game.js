@@ -24,7 +24,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					moveRight : false,
 				},
 			};
-			levels.loadLevel(g, '0');
+			levels.loadLevel(g, '1');
 
 			return g;
 		},
@@ -36,10 +36,12 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 
 			var drawArea = function(x, y, info) {
 				var color;
-				if (info.type == 'ground') {
+				if (info.type === 'ground') {
 					color = "brown";
-				} else if (info.type == 'spring') {
+				} else if (info.type === 'spring') {
 					color = "green";
+				} else if (info.type === 'trap') {
+					color = "red";
 				} else {
 					return;
 				}
@@ -86,8 +88,10 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					} else {
 						g.player.x = g.player.x + 1;
 					}
+				} else if (info.type === 'trap') {
+					g.player.y = g.player.y - 1;
+					info.type = 'ground';
 				} else if (info.type === 'air') {
-					console.log(g.player.x + ", " + g.player.y + ": Found air");
 					g.player.y = g.player.y - 1;
 				}
 
