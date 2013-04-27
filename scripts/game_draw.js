@@ -29,7 +29,17 @@ define(['assets', 'graphics'], function(assets, gfx) {
 	var ANIMATIONS = {
 		walk : function(startX, startY, endX, endY, completion) {
 			var x = startX + ((endX - startX) * completion);
-			var y = startY + ((endY - startY) * completion);
+			var y = startY;
+			return [x, y];
+		},
+		fall : function(startX, startY, endX, endY, completion) {
+			var x = startX;
+			var y = startY - ((startY - endY) * completion);
+			return [x, y];
+		},
+		spring : function(startX, startY, endX, endY, completion) {
+			var x = startX + ((endX - startX) * completion);
+			var y = startY - ((startY - endY) * completion);
 			return [x, y];
 		},
 	}

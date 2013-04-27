@@ -39,8 +39,11 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 		events : function(g) {
 			var lookup = {};
 			var keydown = lookup.keydown = {};
-			keydown[KEY_LEFT] = function(g) {g.actions.moveLeft = true; };
-			keydown[KEY_RIGHT] = function(g) { g.actions.moveRight = true; };
+			if (!g.animation) {
+				keydown[KEY_LEFT] = function(g) { g.actions.moveLeft = true; };
+				keydown[KEY_RIGHT] = function(g) { g.actions.moveRight = true; };
+			}
+
 			return lookup;
 		},
 
