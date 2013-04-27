@@ -25,6 +25,15 @@ define(['assets', 'graphics'], function(assets, gfx) {
 		'trap' : false
 	};
 
+	var ANIMATION_TIME = 0;
+	var ANIMATIONS = {
+		walk : function(startX, startY, endX, endY, completion) {
+			var x = startX + ((endX - startX) * completion);
+			var y = startY + ((endY - startY) * completion);
+			return [x, y];
+		},
+	}
+
 
 	return {
 		init : function(ass) {
@@ -55,7 +64,6 @@ define(['assets', 'graphics'], function(assets, gfx) {
 					
 				var assetUrl = LEVEL_ASSET_MAP[info.type];
 				gfx.draw(ctx, assetUrl, dest);
-				gfx.drawText(ctx, "Traps Left: " + g.level.trapsRemaining, [0, 0]);
 			};
 
 			for (var y = 0; y < g.level.height; y = y + 1) {
@@ -67,8 +75,20 @@ define(['assets', 'graphics'], function(assets, gfx) {
 				}
 			}
 
-			var playerDest = G2C2D([g.player.x * OFFSET + (OFFSET / 2), g.player.y * OFFSET + (OFFSET / 2)]);
+			// Game coordinates
+			var playerLoc;
+			if (g.animation != null) {
+				var animationFunc = ANIMATIONS[g.animation.type];
+				var ticks = +new Date();
+				var completion = (ticks - g.animation.start) / (g.animation.stop - g.animation.start);
+				playerLoc = animationFunc(g.player.x, g.player.y, g.animation.destX, g.animation.destY, completion);
+			} else {
+				playerLoc = [g.player.x, g.player.y];
+			}
+
+			var playerDest = G2C2D([playerLoc[0] * OFFSET + (OFFSET / 2), playerLoc[1] * OFFSET + (OFFSET / 2)]);
 			gfx.draw(ctx, ROBOT_URL, playerDest);
+			/*gfx.drawText(ctx, "Traps Left: " + g.level.trapsRemaining, [0, 0]);*/
 		},
 
 		drawPlot : function(g, ctx) {

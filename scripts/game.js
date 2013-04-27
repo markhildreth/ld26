@@ -61,6 +61,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 				}
 			}
 
+			game_update.updateAnimation(g);
 			game_update.playerAutoMove(g);
 
 			g.actions.moveLeft = false;

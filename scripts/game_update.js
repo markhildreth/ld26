@@ -1,4 +1,9 @@
 define(function() {
+	// In milliseconds
+	ANIMATION_TIMES = {
+		'walk' : 500,
+	}
+
 	return {
 		reversePlot : function(g) {
 			if (g.plotState > 0) {
@@ -26,14 +31,38 @@ define(function() {
 		},
 
 		playerMoveLeft : function(g) {
-			if (g.player.x > 0) {
-				g.player.x = g.player.x - 1;
-			}
+			if (g.player.x === 0) return;
+
+			var start = +new Date();
+			g.animation = {
+				type : 'walk',
+				destX : g.player.x - 1,
+				destY : g.player.y,
+				start : start,
+				stop : start + ANIMATION_TIMES['walk'],
+			};
 		},
 
 		playerMoveRight : function(g) {
-			if (g.player.x < g.level.width - 1) {
-				g.player.x = g.player.x + 1;
+			if (g.player.x >= g.level.width - 1) return;
+
+			var start = +new Date();
+			g.animation = {
+				type : 'walk',
+				destX : g.player.x + 1,
+				destY : g.player.y,
+				start : start,
+				stop : start + ANIMATION_TIMES['walk'],
+			};
+		},
+
+		updateAnimation : function(g) {
+			if (g.animation) {
+				if ((+new Date()) >= g.animation.stop) {
+					g.player.x = g.animation.destX;
+					g.player.y = g.animation.destY;
+					g.animation = null;
+				}
 			}
 		},
 
