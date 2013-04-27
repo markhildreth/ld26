@@ -6,10 +6,12 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 	};
 	var KEY_LEFT = 37,
 		KEY_RIGHT = 39;
+	var ROBOT_URL = 'media/robot.png';
 
 
 	return {
 		init : function(ass) {
+			assets.loadAsset(ass, ROBOT_URL);
 		},
 
 		create : function () {
@@ -29,7 +31,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 			return g;
 		},
 
-		draw : function(g, ctx) {
+		draw : function(g, ctx, ass) {
 			gfx.clear(ctx, "white");
 
 			var OFFSET = 50;
@@ -61,8 +63,9 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 				}
 			}
 
-			var playerDest = G2C2D([g.player.x * OFFSET, g.player.y * OFFSET + OFFSET])
-			gfx.drawRectangle(ctx, playerDest, OFFSET, OFFSET / 2, "blue");
+			var playerDest = G2C2D([g.player.x * OFFSET + (OFFSET / 2), g.player.y * OFFSET + (OFFSET / 2)])
+			gfx.draw(ctx, ROBOT_URL, playerDest);
+			/*gfx.drawRectangle(ctx, playerDest, OFFSET, OFFSET / 2, "blue");*/
 		},
 
 		events : function(g) {
@@ -102,8 +105,6 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 						g.player.x = g.player.x + 1;
 					}
 					info.type = 'air';
-				} else if (info.type === 'air') {
-					g.player.y = g.player.y - 1;
 				} else if (info.type ===  'teleporter') {
 					var teleporter1 = g.level.teleporters[0];
 					var teleporter2 = g.level.teleporters[1];
@@ -117,6 +118,8 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 						g.player.x = teleporter1.x;
 						g.player.y = teleporter1.y;
 					}
+				} else if (info.type === 'air') {
+					g.player.y = g.player.y - 1;
 				}
 
 				info = g.level.data[g.player.y][g.player.x];

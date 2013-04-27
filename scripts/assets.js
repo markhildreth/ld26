@@ -9,8 +9,8 @@ define(function() {
 		loadAsset : function(ass, imageUrl) {
 			var asset = {
 				img : new Image(),
-				width : 64,
-				height : 64,
+				width : 50,
+				height : 50,
 			};
 			ass[imageUrl] = asset;
 			asset.img.src = imageUrl;
