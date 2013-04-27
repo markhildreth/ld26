@@ -1,10 +1,12 @@
 define(function() {
 	var OLD_MAN = {
 		name : 'Old Man',
+		face : 'media/robot_face.png',
 	};
 
 	var ROBOT = {
 		name : 'Robot',
+		face : 'media/robot_face.png',
 	};
 
 	var levels = [

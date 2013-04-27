@@ -30,6 +30,9 @@ define(['assets', 'graphics'], function(assets, gfx) {
 		init : function(ass) {
 			assets.loadAsset(ass, ROBOT_URL);
 			assets.loadAsset(ass, GROUND_URL);
+
+			assets.loadAsset(ass, 'media/robot_face.png');
+
 			assets.loadAsset(ass, 'media/spring.png');
 			assets.loadAsset(ass, 'media/rickity.png');
 			assets.loadAsset(ass, 'media/trap.png');
@@ -77,8 +80,10 @@ define(['assets', 'graphics'], function(assets, gfx) {
 
 			// TODO: Make this better
 			gfx.drawRectangle(ctx, PLOT_WINDOW_CORNER, PLOT_WINDOW_WIDTH, PLOT_WINDOW_HEIGHT, "white");
-			gfx.drawText(ctx, currentPlot.c.name + ":", [PLOT_WINDOW_CORNER[0] + 150, PLOT_WINDOW_CORNER[1] + 20], "black");
-			gfx.drawText(ctx, currentPlot.t, [PLOT_WINDOW_CORNER[0] + 200, PLOT_WINDOW_CORNER[1] + 70], "black");
+			var faceDest = [240, 150];
+			gfx.draw(ctx, currentPlot.c.face, faceDest);
+			gfx.drawText(ctx, currentPlot.c.name + ":", [PLOT_WINDOW_CORNER[0] + 170, PLOT_WINDOW_CORNER[1] + 20], "black");
+			gfx.drawText(ctx, currentPlot.t, [PLOT_WINDOW_CORNER[0] + 200, PLOT_WINDOW_CORNER[1] + 50], "black");
 		},
 	};
 });
