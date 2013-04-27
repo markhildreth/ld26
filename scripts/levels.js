@@ -19,9 +19,14 @@ define(function() {
 				'                    ',
 				'__S_________________',
 			],
+			outroPlot : [
+				{c : OLD_MAN, t : "So you think you're something special?"},
+				{c : ROBOT, t : "Yeah, what's your point?"},
+			],
 		},
 		{
 			introPlot : [
+				{c : OLD_MAN, t : "Alright smart guy, figure this one out"},
 			],
 			data : [
 				'     _RRR_          ',
@@ -29,6 +34,9 @@ define(function() {
 				'   _ST___           ',
 				'                    ',
 				'__S____S______E_____',
+			],
+			outroPlot : [
+				{c : ROBOT, t : 'VICTORY!'},
 			],
 		},
 	];
@@ -39,6 +47,7 @@ define(function() {
 			var height = level.data.length;
 			var width = level.data[0].length;
 
+			g.levelNumber = levelNumber;
 			g.level = {};
 			g.level.height = height;
 			g.level.width = width;
@@ -46,7 +55,8 @@ define(function() {
 			g.level.trapsRemaining = 0;
 			g.state = 'intro';
 			g.level.introPlot = level.introPlot;
-			g.level.introPlotState = 0;
+			g.level.outroPlot = level.outroPlot;
+			g.plotState = 0;
 			var levelData = g.level.data = {};
 
 			for (var yIndex = 0; yIndex < height; yIndex = yIndex + 1) {

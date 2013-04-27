@@ -1,16 +1,27 @@
 define(function() {
 	return {
 		reversePlot : function(g) {
-			if (g.level.introPlotState > 0) {
-				g.level.introPlotState = g.level.introPlotState - 1;
+			if (g.plotState > 0) {
+				g.plotState = g.plotState - 1;
 			}
 		},
 
 		advancedPlot : function(g) {
-			if (g.level.introPlotState === g.level.introPlot.length - 1) {
-				g.state = 'game';
+			var plotLength;
+
+			if (g.state === 'intro') {
+				plotLength = g.level.introPlot.length;
+			} else if (g.state === 'outro' ) {
+				plotLength = g.level.outroPlot.length;
+			}
+			if (g.plotState === plotLength - 1) {
+				if (g.state === 'outro') {
+					g.state = 'level_complete';
+				} else if (g.state === 'intro') {
+					g.state = 'game';
+				}
 			} else {
-				g.level.introPlotState = g.level.introPlotState + 1;
+				g.plotState = g.plotState + 1;
 			}
 		},
 

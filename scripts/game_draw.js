@@ -68,7 +68,12 @@ define(['assets', 'graphics'], function(assets, gfx) {
 		},
 
 		drawPlot : function(g, ctx) {
-			var currentPlot = g.level.introPlot[g.level.introPlotState];
+			var currentPlot;
+			if (g.state === 'intro') {
+				currentPlot = g.level.introPlot[g.plotState];
+			} else if (g.state === 'outro') {
+				currentPlot = g.level.outroPlot[g.plotState];
+			}
 
 			// TODO: Make this better
 			gfx.drawRectangle(ctx, PLOT_WINDOW_CORNER, PLOT_WINDOW_WIDTH, PLOT_WINDOW_HEIGHT, "white");

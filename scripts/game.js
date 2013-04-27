@@ -31,7 +31,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update',], function(gfx, levels
 
 			game_draw.drawGame(g, ctx);
 
-			if (g.state == 'intro') {
+			if (g.state === 'intro' || g.state === 'outro') {
 				game_draw.drawPlot(g, ctx);
 			}
 		},
@@ -46,7 +46,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update',], function(gfx, levels
 
 		update : function(g, delta) {
 			if (g.actions.moveLeft) {
-				if (g.state === 'intro') {
+				if (g.state === 'intro' || g.state === 'outro') {
 					game_update.reversePlot(g);
 				} else if (g.state === 'game') {
 					game_update.playerMoveLeft(g);
@@ -54,7 +54,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update',], function(gfx, levels
 			}
 
 			if (g.actions.moveRight) {
-				if (g.state === 'intro') {
+				if (g.state === 'intro' || g.state === 'outro') {
 					game_update.advancedPlot(g);
 				} else if (g.state === 'game') {
 					game_update.playerMoveRight(g);
@@ -65,6 +65,16 @@ define(['graphics', 'levels', 'game_draw', 'game_update',], function(gfx, levels
 
 			g.actions.moveLeft = false;
 			g.actions.moveRight = false;
+
+			if (g.state === 'game' && g.level.trapsRemaining === 0) {
+				g.state = 'outro';
+				g.plotState = 0;
+			}
+
+			if (g.state === 'level_complete') {
+				var newLevelNumber = g.levelNumber + 1;
+				levels.loadLevel(g, newLevelNumber);
+			}
 		}
 	};
 });
