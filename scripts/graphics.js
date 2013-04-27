@@ -10,8 +10,8 @@ define(function() {
 			}
 		},
 
-		clear : function(c) {
-			c.ctx.fillStyle = "black";
+		clear : function(c, color) {
+			c.ctx.fillStyle = color;
 			c.ctx.fillRect(0, 0, c.canvas.width, c.canvas.height);
 		},
 

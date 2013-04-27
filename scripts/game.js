@@ -30,7 +30,7 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 		},
 
 		draw : function(g, ctx) {
-			gfx.clear(ctx);
+			gfx.clear(ctx, "white");
 
 			var OFFSET = 50;
 
