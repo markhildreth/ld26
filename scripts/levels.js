@@ -8,10 +8,10 @@ define(function() {
 		],
 		'1' : [
 			'     _RRR_      ',
-			'                ',
+			' E              ',
 			'   _ST___       ',
 			'                ',
-			'__S____S________',
+			'__S____S______E_',
 		],
 	}
 
@@ -23,6 +23,7 @@ define(function() {
 			g.level = {};
 			g.level.height = level.length;
 			g.level.width = level[0].length;
+			g.level.teleporters = [];
 			var levelData = g.level.data = {};
 
 			for (var yIndex = 0; yIndex < level.length; yIndex = yIndex + 1) {
@@ -42,6 +43,9 @@ define(function() {
 						levelInfo.type = 'trap';
 					} else if (typeChar === 'R') {
 						levelInfo.type = 'rickity';
+					} else if (typeChar === 'E') {
+						levelInfo.type = 'teleporter';
+						g.level.teleporters.push({x: x, y: y});
 					} else {
 						levelInfo.type = 'air';
 					}

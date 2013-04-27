@@ -44,6 +44,8 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					color = "red";
 				} else if (info.type === 'rickity') {
 					color = "yellow";
+				} else if (info.type === 'teleporter') {
+					color = "black";
 				} else {
 					return;
 				}
@@ -102,6 +104,19 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 					info.type = 'air';
 				} else if (info.type === 'air') {
 					g.player.y = g.player.y - 1;
+				} else if (info.type ===  'teleporter') {
+					var teleporter1 = g.level.teleporters[0];
+					var teleporter2 = g.level.teleporters[1];
+
+					g.level.data[teleporter1.y][teleporter1.x].type = 'ground';
+					g.level.data[teleporter2.y][teleporter2.x].type = 'ground';
+					if (teleporter1.x === g.player.x && teleporter1.y === g.player.y) {
+						g.player.x = teleporter2.x;
+						g.player.y = teleporter2.y;
+					} else {
+						g.player.x = teleporter1.x;
+						g.player.y = teleporter1.y;
+					}
 				}
 
 				info = g.level.data[g.player.y][g.player.x];
