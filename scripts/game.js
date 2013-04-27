@@ -7,11 +7,32 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 	var KEY_LEFT = 37,
 		KEY_RIGHT = 39;
 	var ROBOT_URL = 'media/robot.png';
+	var GROUND_URL = 'media/ground.png';
+
+	var LEVEL_ASSET_MAP = {
+		'spring' : 'media/spring.png',
+		'rickity' : 'media/rickity.png',
+		'trap' : 'media/trap.png',
+		'teleporter' : 'media/teleporter.png',
+	};
+
+	var SHOULD_DRAW_GROUND = {
+		'ground' : true,
+		'spring' : true,
+		'rickity' : false,
+		'teleporter' : true,
+		'trap' : false,
+	};
 
 
 	return {
 		init : function(ass) {
 			assets.loadAsset(ass, ROBOT_URL);
+			assets.loadAsset(ass, GROUND_URL);
+			assets.loadAsset(ass, 'media/spring.png');
+			assets.loadAsset(ass, 'media/rickity.png');
+			assets.loadAsset(ass, 'media/trap.png');
+			assets.loadAsset(ass, 'media/teleporter.png');
 		},
 
 		create : function () {
@@ -37,29 +58,24 @@ define(['graphics', 'assets', 'levels'], function(gfx, assets, levels) {
 			var OFFSET = 50;
 
 			var drawArea = function(x, y, info) {
-				var color;
-				if (info.type === 'ground') {
-					color = "brown";
-				} else if (info.type === 'spring') {
-					color = "green";
-				} else if (info.type === 'trap') {
-					color = "red";
-				} else if (info.type === 'rickity') {
-					color = "yellow";
-				} else if (info.type === 'teleporter') {
-					color = "black";
-				} else {
-					return;
+				var dest = G2C2D([x * OFFSET + (OFFSET / 2), y * OFFSET + (OFFSET / 2)])
+				
+				if (SHOULD_DRAW_GROUND[info.type]) {
+					gfx.draw(ctx, GROUND_URL, dest);
 				}
 
-				var dest = G2C2D([x * OFFSET, y * OFFSET + (OFFSET / 2)])
-				gfx.drawRectangle(ctx, dest, OFFSET, OFFSET / 2, color);
+				if (info.type === 'ground') return;
+					
+				var assetUrl = LEVEL_ASSET_MAP[info.type];
+				gfx.draw(ctx, assetUrl, dest);
 			}
 
 			for (var y = 0; y < g.level.height; y = y + 1) {
 				for (var x = 0; x < g.level.width; x = x + 1) {
-					var type = g.level.data[y][x];
-					drawArea(x, y, type);
+					var level = g.level.data[y][x];
+					if (level.type !== 'air') {
+						drawArea(x, y, level);
+					}
 				}
 			}
 
