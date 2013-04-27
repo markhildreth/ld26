@@ -44,9 +44,9 @@ define(function() {
 			g.level.width = width;
 			g.level.teleporters = [];
 			g.level.trapsRemaining = 0;
-			g.introPlot = level.introPlot;
 			g.state = 'intro';
-			g.plotState = 0;
+			g.level.introPlot = level.introPlot;
+			g.level.plotState = 0;
 			var levelData = g.level.data = {};
 
 			for (var yIndex = 0; yIndex < height; yIndex = yIndex + 1) {

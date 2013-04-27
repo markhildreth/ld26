@@ -3,6 +3,10 @@ define(['assets', 'graphics'], function(assets, gfx) {
 		return [d[0], 600 - d[1]]
 	};
 
+	var PLOT_WINDOW_CORNER = [200, 100];
+	var PLOT_WINDOW_WIDTH = 600;
+	var PLOT_WINDOW_HEIGHT = 200;
+
 	var ROBOT_URL = 'media/robot.png';
 	var GROUND_URL = 'media/ground.png';
 
@@ -61,6 +65,15 @@ define(['assets', 'graphics'], function(assets, gfx) {
 
 			var playerDest = G2C2D([g.player.x * OFFSET + (OFFSET / 2), g.player.y * OFFSET + (OFFSET / 2)])
 			gfx.draw(ctx, ROBOT_URL, playerDest);
+		},
+
+		drawPlot : function(g, ctx) {
+			var currentPlot = g.level.introPlot[g.level.plotState];
+
+			// TODO: Make this better
+			gfx.drawRectangle(ctx, PLOT_WINDOW_CORNER, PLOT_WINDOW_WIDTH, PLOT_WINDOW_HEIGHT, "white");
+			gfx.drawText(ctx, currentPlot.c.name + ":", [PLOT_WINDOW_CORNER[0] + 150, PLOT_WINDOW_CORNER[1] + 20], "black");
+			gfx.drawText(ctx, currentPlot.t, [PLOT_WINDOW_CORNER[0] + 200, PLOT_WINDOW_CORNER[1] + 70], "black");
 		},
 	};
 });

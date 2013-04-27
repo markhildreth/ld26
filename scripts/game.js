@@ -1,4 +1,4 @@
-define(['graphics', 'assets', 'levels', 'game_draw',], function(gfx, assets, levels, game_draw) {
+define(['graphics', 'levels', 'game_draw',], function(gfx, levels, game_draw) {
 	"use strict";
 
 	var KEY_LEFT = 37,
@@ -21,7 +21,7 @@ define(['graphics', 'assets', 'levels', 'game_draw',], function(gfx, assets, lev
 					moveRight : false,
 				},
 			};
-			levels.loadLevel(g, '1');
+			levels.loadLevel(g, 0);
 
 			return g;
 		},
@@ -31,6 +31,9 @@ define(['graphics', 'assets', 'levels', 'game_draw',], function(gfx, assets, lev
 
 			game_draw.drawGame(g, ctx);
 
+			if (g.state == 'intro') {
+				game_draw.drawPlot(g, ctx);
+			}
 		},
 
 		events : function(g) {

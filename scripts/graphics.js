@@ -40,10 +40,10 @@ define(function() {
 			c.ctx.restore();
 		},
 
-		drawText : function(c, text, dest) {
+		drawText : function(c, text, dest, color) {
 			c.ctx.textBaseline = "top";
 			c.ctx.font = "16pt Calibri";
-			c.ctx.fillStyle = "white";
+			c.ctx.fillStyle = color;
 			c.ctx.fillText(text, dest[0], dest[1]);
 		}
 	};
