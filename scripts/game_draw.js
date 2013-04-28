@@ -97,7 +97,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			}
 
 			var playerDest = G2C2D([playerLoc[0] * OFFSET + (OFFSET / 2), playerLoc[1] * OFFSET + (OFFSET / 2)]);
-			gfx.draw(ctx, ROBOT_URL, playerDest);
+			gfx.draw(ctx, ROBOT_URL, playerDest, 0, g.player.facingLeft);
 			/*gfx.drawText(ctx, "Traps Left: " + g.level.trapsRemaining, [0, 0]);*/
 		},
 

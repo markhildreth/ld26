@@ -33,6 +33,7 @@ define(function() {
 		},
 
 		playerMoveLeft : function(g) {
+			g.player.facingLeft = true;
 			if (g.player.x === 0) return;
 
 			var start = +new Date();
@@ -46,6 +47,7 @@ define(function() {
 		},
 
 		playerMoveRight : function(g) {
+			g.player.facingLeft = false;
 			if (g.player.x >= g.level.width - 1) return;
 
 			var start = +new Date();
@@ -73,9 +75,16 @@ define(function() {
 			var info = g.level.data[g.player.y][g.player.x];
 			var start = +new Date();
 			if (info.type === 'spring') {
+				var xOffset;
+				if (g.player.facingLeft) {
+					xOffset = -1;
+				} else {
+					xOffset = 1;
+				}
+
 				g.animation = {
 					type : 'spring',
-					destX : g.player.x + 1,
+					destX : g.player.x + xOffset,
 					destY : g.player.y + 2,
 					start : start,
 					stop : start + ANIMATION_TIMES['spring'],

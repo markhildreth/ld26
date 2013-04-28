@@ -28,12 +28,24 @@ define(function() {
 			c.ctx.fillRect(x, y, width, width);
 		},
 
-		draw : function(c, assetName, dest, rotation) {
+		draw : function(c, assetName, dest, rotation, flipX, flipY) {
 			var asset = c.assets[assetName];
 
 			c.ctx.save();
 			c.ctx.translate(dest[0], dest[1]);
-			c.ctx.rotate(rotation);
+
+			if (rotation) {
+				c.ctx.rotate(rotation);
+			}
+
+			if (flipX && flipY) {
+				c.ctx.scale(-1, -1);
+			} else if (flipX) {
+				c.ctx.scale(-1, 1);
+			} else if (flipY) {
+				c.ctx.scale(1, -1);
+			}
+
 			var centerOffsetX = asset.width / 2,
 				centerOffsetY = asset.height / 2;
 			c.ctx.drawImage(asset.img, -centerOffsetX, -centerOffsetY);

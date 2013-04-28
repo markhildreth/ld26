@@ -14,7 +14,8 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 				level : null,
 				player : {
 					x : 0,
-					y : 0
+					y : 0,
+					facingLeft : false
 				},
 				actions : {
 					moveLeft : false,
