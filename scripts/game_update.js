@@ -74,8 +74,8 @@ define(function() {
 			if (g.animation) return;
 			var info = g.level.data[g.player.y][g.player.x];
 			var start = +new Date();
+			var xOffset;
 			if (info.type === 'spring') {
-				var xOffset;
 				if (g.player.facingLeft) {
 					xOffset = -1;
 				} else {
@@ -102,9 +102,14 @@ define(function() {
 				info.type = 'ground';
 				g.level.trapsRemaining = g.level.trapsRemaining - 1;
 			} else if (info.type === 'rickity') {
+				if (g.player.facingLeft) {
+					xOffset = -1;
+				} else {
+					xOffset = 1;
+				}
 				g.animation = {
 					type : 'walk',
-					destX : g.player.x + 1,
+					destX : g.player.x + xOffset,
 					destY : g.player.y,
 					start : start,
 					stop : start + ANIMATION_TIMES['walk'],
