@@ -273,8 +273,19 @@ define(function() {
 		},
 		{
 			introPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this intro!",
+				{c : ROBOT, t : [
+					"Sir, it looks like there's a different type of device",
+					"here",
+				]},
+				{c : GENERAL, t : [
+					"Ah yes, the Insta-Bridge ER200. You might",
+					"remember them in your history databanks as",
+					"the prime reason we lost the battle of",
+					"Canyon X983O.",
+				]},
+				{c : GENERAL, t : [
+					"Only one soldier ever was able to cross",
+					"before the bridge inevitably collapsed.",
 				]},
 			],
 			data : [
@@ -287,15 +298,43 @@ define(function() {
 				"____________________",
 			],
 			outroPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this outro!",
+				{c : ROBOT, t : [
+					"Weren't these tested before they were used in",
+					"battle?",
+				]},
+				{c : GENERAL, t : [
+					"The manufacturers were Ehgis, and they",
+					"guaranteed us that they would work.",
+				]},
+				{c : ROBOT, t : [
+					"Whatever happened to the manufacturer?",
+				]},
+				{c : GENERAL, t : [
+					"Turns out in all of the fog of war, we",
+					"didn't realize that the battle was being",
+					"fought AGAINST the Ehgis.",
 				]},
 			],
 		},
 		{
 			introPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this intro!",
+				{c : GENERAL, t : [
+					"I've been looking at the schematics for the",
+					"Scout Droid Bravo 3XX model.",
+				]},
+				{c : ROBOT, t : [
+					"A fine peice of machinery, aren't I?",
+				]},
+				{c : GENERAL, t : [
+					"What I find interesting is that that model",
+					"doesn't have a natural language chip.",
+				]},
+				{c : ROBOT, t : [
+					"I'm scarcely aware of any primary reason",
+					"why my circuitry being bereft of programming",
+					"allowing for the use of the Galactic Standard",
+					"as a means of communications leaves you",
+					"bewildered.",
 				]},
 			],
 			data : [
@@ -307,8 +346,32 @@ define(function() {
 				"___S_*S_____________",
 			],
 			outroPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this outro!",
+				{c : GENERAL, t : [
+					"I'm also surprised by the fact that one",
+					"of the mechanics who built your line",
+					"has gone missing since your production.",
+				]},
+				{c : ROBOT, t : [
+					"Yes, that certainly is odd...",
+				]},
+				{c : GENERAL, t : [
+					"Let me ask you something, Junior. You're",
+					"not actually just that mechnic that somehow",
+					"got stuck in the robot, are you?",
+				]},
+				{c : ROBOT, t : [
+					"What!? Sir, that's outrageous",
+				]},
+				{c : GENERAL, t : [
+					"Okay. Prove to me that you're a computer.",
+					"What is the square root of the product of",
+					"5345 and 723?",
+				]},
+				{c : ROBOT , t : [
+					"Um... ERROR... MATH PROCESSING",
+					"MODULE... umm.. DAMAGED... um...",
+					"GOING TO SLEEP MODE",
+					"BEOUooooo...",
 				]},
 			],
 		},
