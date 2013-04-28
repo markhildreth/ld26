@@ -2,7 +2,10 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 	"use strict";
 
 	var KEY_LEFT = 37,
-		KEY_RIGHT = 39;
+		KEY_RIGHT = 39,
+		KEY_S = 83,
+		KEY_N = 78,
+		KEY_R = 82;
 
 	return {
 		init : function(ass) {
@@ -19,7 +22,10 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 				},
 				actions : {
 					moveLeft : false,
-					moveRight : false
+					moveRight : false,
+					skipLevel : false,
+					skipToOutro : false,
+					restartLevel : false,
 				}
 			};
 			levels.loadLevel(g, 0);
@@ -40,9 +46,15 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 		events : function(g) {
 			var lookup = {};
 			var keydown = lookup.keydown = {};
+
 			if (!g.animation) {
 				keydown[KEY_LEFT] = function(g) { g.actions.moveLeft = true; };
 				keydown[KEY_RIGHT] = function(g) { g.actions.moveRight = true; };
+				if (g.state === 'game') {
+					keydown[KEY_R] = function(g) { g.actions.restartLevel = true; }
+				}
+				keydown[KEY_S] = function(g) { g.actions.skipToOutro = true; };
+				keydown[KEY_N] = function(g) { g.actions.skipLevel = true; };
 			}
 
 			return lookup;
@@ -76,9 +88,23 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 				g.plotState = 0;
 			}
 
+			if (!g.animation && g.actions.skipToOutro) {
+				g.state = 'outro';
+				g.plotState = 0;
+				g.actions.skipToOutro = false;
+			}
+
+			if (g.actions.restartLevel) {
+				levels.loadLevel(g, g.levelNumber);
+			}
+
+			if (!g.animation && g.actions.skipLevel) {
+				levels.loadLevel(g, g.levelNumber + 1);
+				g.actions.skipLevel = false;
+			}
+
 			if (g.state === 'level_complete') {
-				var newLevelNumber = g.levelNumber + 1;
-				levels.loadLevel(g, newLevelNumber);
+				levels.loadLevel(g, g.levelNumber + 1);
 			}
 		}
 	};

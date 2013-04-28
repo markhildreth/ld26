@@ -1,6 +1,11 @@
 define(function() {
-	var MAN = {
-		name : 'Man',
+	var UNKNOWN = {
+		name : 'Unknown',
+		face : 'media/unknown_face.png'
+	};
+
+	var GENERAL = {
+		name : 'General',
 		face : 'media/man_face.png'
 	};
 
@@ -12,30 +17,137 @@ define(function() {
 	var levels = [
 		{
 			introPlot : [
-				{c : ROBOT, t : ["Dear diary..."]},
-				{c : ROBOT, t : ["It's been four days since I recieved any word", "from headquarters. I'm beginning to lose faith"]},
-				{c : MAN, t : ["What's up?"]},
-				{c : ROBOT, t : ["NM, you?"]}
+				{c : ROBOT, t : [
+					"Status: T+5 travel days from primary base.",
+					"Mission Objectives: Unknown due to data",
+					"corruption.",
+					"Last Contact: T-4 days prior",
+				]},
+				{c : UNKNOWN, t : ["[STATIC]"]},
+				{c : ROBOT, t : [
+					"Signal Detected! Horizonal interference likely.",
+					"Higher altitude required to achieve stable",
+					"communication channel."
+				]},
+				{c : ROBOT, t : [
+					"Damage Report: Vertical thrusters damaged.",
+					"Possible alternate route to higher peak detected.",
+					"Nearby abandoned up-jets detected.",
+				]},
+				{c : ROBOT, t : [
+					"Moving to up-jets to achieve higher altitude...",
+				]},
 			],
 			data : [
+				'       _            ',
 				'                    ',
-				'   _                ',
+				'     _S             ',
 				'                    ',
-				'__S_________________'
+				'   _S               ',
+				'                    ',
+				'*_S_________________'
 			],
 			outroPlot : [
-				{c : MAN, t : ["So you think you're something special?"]},
-				{c : ROBOT, t : ["Yeah, what's your point?"]}
+				{c : ROBOT, t : [
+					"Retrying connection uplink..."
+				]},
+				{c : UNKNOWN, t : [
+					"[STATIC]...",
+				]},
+				{c : UNKNOWN, t : [
+					"...[STATIC]...",
+				]},
+				{c : UNKNOWN, t : [
+					"[STATIC]... WITHOUT fries this time! If I see",
+					"one fry on that plate, so help me...[STATIC]..."
+				]},
+				{c : ROBOT, t : [
+					"Unknown Carrier: This is Scout Droid Bravo",
+					"325 Jr. requesting priority channel via",
+					"Emergency Sequence 37 Protocol.",
+				]},
+				{c : UNKNOWN, t : [
+					"...what? Who is this? Is this some sort of",
+					"joke?",
+				]},
+				{c : ROBOT, t : [
+					"Negative. Repeating sequence. This is",
+					"Scout Droid..."
+				]},
+				{c : UNKNOWN, t : [
+					"I don't care if you're R2D2, you've interrupted",
+					"a very important call!",
+				]},
+				{c : ROBOT, t : [
+					"...it sounded like you were ordering fast food...",
+				]},
+				{c : UNKNOWN, t : [
+					"...listen here, scout....",
+				]},
+				{c : ROBOT, t : [
+					"Scout Droid Bravo 325 Jr, reporting from E9",
+					"Sector...",
+				]},
+				{c : UNKNOWN, t : [
+					"..right, listen Junior... I just...",
+				]},
+				{c : UNKNOWN, t : [
+					"..wait, first of all, since when did our robots",
+					"start spawning little baby robots to warrant",
+					"the title of 'Junior'. And second... did you",
+					"say that you're in the E9 sector?",
+				]},
+				{c : ROBOT, t : [
+					"Affirmative sir, E9 sector",
+				]},
+				{c : GENERAL, t : [
+					"Alright, this is General <NAME>. I'm",
+					"responding to your priority whatever the",
+					"heck it was, and will send aid as necessary.",
+					"But I'll need you to follow my orders.",
+				]},
+				{c : GENERAL, t : [
+					"Head West one click and I'll tell you what I",
+					"need you to do.",
+				]},
 			]
 		},
 		{
 			introPlot : [
-				{c : MAN, t : ["Alright smart guy, figure this one out"]}
+				{c : GENERAL, t : [
+					"Listen Junior, we've been having transmission",
+					"issues in and around E9 sector. We're thinking",
+					"it's from all of the remaining transportation",
+					"devices.",
+				]},
+				{c : GENERAL, t : [
+					"I need you to go around and destroy all of the",
+					"devices to stop them from interfering with our",
+					"signals.",
+				]},
+				{c : ROBOT, t : [
+					"Understood. Are there explosive charges in the",
+					"area?",
+				]},
+				{c : GENERAL, t : [
+					"Explosives? Son, those devices were made by",
+					"the Xelna'ri. Best pilots in the galaxy, but don't",
+					"know a screwdriver from a... one of those...",
+					"poundy thingies...",
+				]},
+				{c : ROBOT, t: [
+					"A hammer, sir?",
+				]},
+				{c : GENERAL, t: [
+					"...exactly! Anyway, just go ahead and use some",
+					"of those up-jets and no doubt it will break",
+					"under the weight of it's builder's inadequacy!",
+				]},
 			],
 			data : [
 				'     _RRR_          ',
 				' E                  ',
-				'   _ST___           ',
+				'   _ST__*           ',
 				'                    ',
 				'__S____S______E_____'
 			],
@@ -82,6 +194,10 @@ define(function() {
 					} else if (typeChar === 'E') {
 						levelInfo.type = 'teleporter';
 						g.level.teleporters.push({x: x, y: y});
+					} else if (typeChar === '*') {
+						levelInfo.type = 'ground';
+						g.player.x = x;
+						g.player.y = y;
 					} else {
 						levelInfo.type = 'air';
 					}
