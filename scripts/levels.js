@@ -10,7 +10,7 @@ define(function() {
 	};
 
 	var ROBOT = {
-		name : 'Robot',
+		name : 'Scout Droid Bravo 325 Jr.',
 		face : 'media/robot_face.png'
 	};
 
