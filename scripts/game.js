@@ -34,7 +34,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 		},
 
 		draw : function(g, ctx, ass) {
-			gfx.clear(ctx, "black");
+			game_draw.drawBackground(g, ctx);
 
 			game_draw.drawGame(g, ctx);
 

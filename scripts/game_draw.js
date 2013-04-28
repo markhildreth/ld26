@@ -10,6 +10,9 @@ define(['assets', 'graphics'], function(assets, gfx) {
 	var ROBOT_URL = 'media/robot.png';
 	var GROUND_URL = 'media/ground.png';
 
+	var BACKGROUND_GROUND_URL = 'media/background_ground.png';
+	var BACKGROUND_STARS_URL = 'media/background_stars.png';
+
 	var LEVEL_ASSET_MAP = {
 		'spring' : 'media/spring.png',
 		'rickity' : 'media/rickity.png',
@@ -58,6 +61,15 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			assets.loadAsset(ass, 'media/rickity.png');
 			assets.loadAsset(ass, 'media/trap.png');
 			assets.loadAsset(ass, 'media/teleporter.png');
+
+			assets.loadAsset(ass, BACKGROUND_GROUND_URL);
+			assets.loadAsset(ass, BACKGROUND_STARS_URL);
+		},
+
+		drawBackground : function(g, ctx) {
+			//gfx.clear(ctx, "black");
+			gfx.draw(ctx, BACKGROUND_STARS_URL, [25, 25]);
+			gfx.draw(ctx, BACKGROUND_GROUND_URL, [25, 25]);
 		},
 
 		drawGame : function(g, ctx) {
