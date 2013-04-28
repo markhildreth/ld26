@@ -161,8 +161,149 @@ define(function() {
 				'___________S________',
 			],
 			outroPlot : [
-				{c : ROBOT, t : ["VICTORY!"]}
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
 			]
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
+				"  ___ _S            ",
+				"     S              ",
+				"*__S_S______________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"      _   _         ",
+				"      SSSSS         ",
+				"_______S*S__________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
+				"*___________________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
+				"*___________________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
+				"*___________________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
+				"*___________________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
+				"*___________________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
+				"*___________________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
 		},
 		{
 			introPlot : [
