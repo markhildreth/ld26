@@ -98,7 +98,7 @@ define(function() {
 					"say that you're in the E9 sector?",
 				]},
 				{c : ROBOT, t : [
-					"Affirmative sir, E9 sector",
+					"Affirmative sir, E9 sector.",
 				]},
 				{c : GENERAL, t : [
 					"Alright, this is General Mann. I'm",
@@ -150,11 +150,11 @@ define(function() {
 				]},
 			],
 			data : [
-				"                    ",
-				"                    ",
-				"  ___ _S            ",
-				"     S              ",
-				"*__S_S______________",
+				'                    ',
+				'                    ',
+				'            _S      ',
+				'        S_*         ',
+				'___________S________',
 			],
 			outroPlot : [
 				{c : GENERAL, t : [
@@ -203,11 +203,11 @@ define(function() {
 				]},
 			],
 			data : [
-				'                    ',
-				'                    ',
-				'            _S      ',
-				'        S_*         ',
-				'___________S________',
+				"                    ",
+				"                    ",
+				"    _S              ",
+				"   _S               ",
+				"*__S________________",
 			],
 			outroPlot : [
 				{c : UNKNOWN, t : [
