@@ -5,7 +5,7 @@ define(function() {
 	};
 
 	var GENERAL = {
-		name : 'General',
+		name : 'General Mann',
 		face : 'media/man_face.png'
 	};
 
@@ -101,14 +101,10 @@ define(function() {
 					"Affirmative sir, E9 sector",
 				]},
 				{c : GENERAL, t : [
-					"Alright, this is General <NAME>. I'm",
+					"Alright, this is General Mann. I'm",
 					"responding to your priority whatever the",
 					"heck it was, and will send aid as necessary.",
 					"But I'll need you to follow my orders.",
-				]},
-				{c : GENERAL, t : [
-					"Head West one click and I'll tell you what I",
-					"need you to do.",
 				]},
 			]
 		},
@@ -161,8 +157,42 @@ define(function() {
 				"*__S_S______________",
 			],
 			outroPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this outro!",
+				{c : GENERAL, t : [
+					"Good work. Now head two klicks West. There",
+					"are some more devices that I need you to deal",
+					"with.",
+				]},
+				{c : ROBOT, t : [
+					"How far is a 'klick', exactly?",
+				]},
+				{c : GENERAL, t : [
+					"What kind of robot are you that you can't",
+					"calculate distance in klicks?",
+				]},
+				{c : ROBOT, t : [
+					"My model had the unit of measure chip",
+					"removed in order to make room for a",
+					"different chip, the 'Rimshot-Four'",
+				]},
+				{c : GENERAL, t : [
+					"What's a 'Rimshot-Four'?",
+				]},
+				{c : ROBOT, t : [
+					"For playing at the end of bad jokes.",
+					"[[BUH-DUM-CHZZZ]]",
+				]},
+				{c : GENERAL, t : [
+					"Are you telling me we removed an important",
+					"chip from your circuitry in order to make room",
+					"for a way to generate sound effects at the end",
+					"of terrible jokes?",
+				]},
+				{c : ROBOT, t : [
+					"Actually, the chip will only activate the",
+					"sound effect for that specific joke.",
+				]},
+				{c : GENERAL, t : [
+					"...",
 				]},
 			]
 		},
