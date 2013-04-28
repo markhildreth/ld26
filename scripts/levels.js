@@ -198,8 +198,26 @@ define(function() {
 		},
 		{
 			introPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this intro!",
+				{c : ROBOT, t : [
+					"More up-jets here, sir. Shall I destroy they?",
+				]},
+				{c : GENERAL, t : [
+					"Let me check... yeah, I still can't get a strong",
+					"signal to Mars Hut.",
+				]},
+				{c : ROBOT, t : [
+					"How exactly will your being able to contact a",
+					"food delivery service help my getting back to",
+					"base?"
+				]},
+				{c : GENERAL, t : [
+					"Pretty simple really... the delivery services",
+					"would need to pass by your sector in order to",
+					"reach my headquarters. They'll send a ship right",
+					"by you.",
+				]},
+				{c : ROBOT, t : [
+					"Oh... that.. that actually sounds like a plan...",
 				]},
 			],
 			data : [
@@ -210,8 +228,46 @@ define(function() {
 				"*__S________________",
 			],
 			outroPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this outro!",
+				{c : ROBOT, t : [
+					"Wait... what makes you think the delivery ship",
+					"will actually stop to find me as opposed to just",
+					"delivering the food straight to you?",
+				]},
+				{c : GENERAL, t : [
+					"There's a field on their hypertext form when you",
+					"order so that you can place 'additional requests'.",
+					"I'll put in there for them to pick you up.",
+				]},
+				{c : ROBOT, t : [
+					"So, what, you'll just type 'Engage in a costly",
+					"search and rescue mission to find a small robot",
+					"somewhere in E9 sector while on your way",
+					"over'?",
+				]},
+				{c : GENERAL, t : [
+					"Hey, last time I asked them to draw a dinosaur",
+					"on the pizza box, and they did it!",
+				]},
+				{c : ROBOT, t : [
+					"That's not even CLOSE to the same amount of",
+					"work they would have to do!",
+				]},
+				{c : GENERAL, t : [
+					"What? You should SEE the detailing on the",
+					"ankylosaurus tail! Here, let me send you a photo",
+					"I took.",
+				]},
+				{c : ROBOT, t : [
+					"...",
+				]},
+				{c : ROBOT, t : [
+					".....",
+				]},
+				{c : ROBOT, t : [
+					"Wow...",
+				]},
+				{c : ROBOT, t : [
+					"...actually, that IS really good detailing",
 				]},
 			],
 		},
