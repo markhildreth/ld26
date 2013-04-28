@@ -283,10 +283,12 @@ define(function() {
 			data : [
 				"                    ",
 				"                    ",
-				" *RRRRRRRRRRRRR     ",
-				"   RRRRRRRRRRRRR_   ",
-				" _RRRRRRRRRRRRRS    ",
-				"  SRRRRRRRRRRRRRRRR_",
+				" *RRRRRRRRRRRRRR    ",
+				"                    ",
+				"  SRRRRRRRRRRRRR_   ",
+				"                    ",
+				"   _RRRRRRRRRRRS    ",
+				"    SRRRRRRRRRRRRRR_",
 				"__________________S_",
 			],
 			outroPlot : [
@@ -325,7 +327,10 @@ define(function() {
 			data : [
 				"                    ",
 				"                    ",
-				"*___________________",
+				"                    ",
+				"    _*_T_T_RR_      ",
+				" ___   _____        ",
+				"______S_S___________",
 			],
 			outroPlot : [
 				{c : UNKNOWN, t : [
@@ -342,7 +347,10 @@ define(function() {
 			data : [
 				"                    ",
 				"                    ",
-				"*___________________",
+				"  *_T_R_T_          ",
+				" _ S_S_S_S          ",
+				"  __T_RR___         ",
+				"____________________",
 			],
 			outroPlot : [
 				{c : UNKNOWN, t : [
