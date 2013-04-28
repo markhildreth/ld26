@@ -140,9 +140,31 @@ define(function() {
 				]},
 				{c : GENERAL, t: [
 					"...exactly! Anyway, just go ahead and use some",
-					"of those up-jets and no doubt it will break",
-					"under the weight of it's builder's inadequacy!",
+					"of those up-jets. No doubt they will break",
+					"under the weight of their builder's inadequacy!",
 				]},
+				{c : ROBOT, t: [
+					"Roger, will do!",
+				]},
+				{c : ROBOT, t: [
+					"Hmm... with my vertical thrusters broken, I'm",
+					"going to have to make sure I hit these up-jets",
+					"in the right order so that I can break all of",
+					"them."
+				]},
+			],
+			data : [
+				'                    ',
+				'            _S      ',
+				'        S_*         ',
+				'___________S________',
+			],
+			outroPlot : [
+				{c : ROBOT, t : ["VICTORY!"]}
+			]
+		},
+		{
+			introPlot : [
 			],
 			data : [
 				'     _RRR_          ',
@@ -152,9 +174,8 @@ define(function() {
 				'__S____S______E_____'
 			],
 			outroPlot : [
-				{c : ROBOT, t : ["VICTORY!"]}
-			]
-		}
+			],
+		},
 	];
 
 	return {

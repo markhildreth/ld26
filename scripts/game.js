@@ -96,6 +96,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 
 			if (g.actions.restartLevel) {
 				levels.loadLevel(g, g.levelNumber);
+				g.actions.restartLevel = false;
 			}
 
 			if (!g.animation && g.actions.skipLevel) {
