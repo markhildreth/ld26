@@ -242,6 +242,27 @@ define(function() {
 			data : [
 				"                    ",
 				"                    ",
+				" _RR_RRR*RRR____    ",
+				"                    ",
+				"  __RRR_RRRS        ",
+				"                    ",
+				"____________________",
+			],
+			outroPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this outro!",
+				]},
+			],
+		},
+		{
+			introPlot : [
+				{c : UNKNOWN, t : [
+					"Need to fill this intro!",
+				]},
+			],
+			data : [
+				"                    ",
+				"                    ",
 				"      S_            ",
 				"  _RR_ _            ",
 				"      S              ",
@@ -262,24 +283,11 @@ define(function() {
 			data : [
 				"                    ",
 				"                    ",
-				"*___________________",
-			],
-			outroPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this outro!",
-				]},
-			],
-		},
-		{
-			introPlot : [
-				{c : UNKNOWN, t : [
-					"Need to fill this intro!",
-				]},
-			],
-			data : [
-				"                    ",
-				"                    ",
-				"*___________________",
+				" *RRRRRRRRRRRRR     ",
+				"   RRRRRRRRRRRRR_   ",
+				" _RRRRRRRRRRRRRS    ",
+				"  SRRRRRRRRRRRRRRRR_",
+				"__________________S_",
 			],
 			outroPlot : [
 				{c : UNKNOWN, t : [
