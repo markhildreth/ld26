@@ -114,7 +114,9 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			var faceDest = [240, 150];
 			gfx.draw(ctx, currentPlot.c.face, faceDest);
 			gfx.drawText(ctx, currentPlot.c.name + ":", [PLOT_WINDOW_CORNER[0] + 170, PLOT_WINDOW_CORNER[1] + 20], "black");
-			gfx.drawText(ctx, currentPlot.t, [PLOT_WINDOW_CORNER[0] + 200, PLOT_WINDOW_CORNER[1] + 50], "black");
+			for (var line = 0; line < currentPlot.t.length; line = line + 1) {
+				gfx.drawText(ctx, currentPlot.t[line], [PLOT_WINDOW_CORNER[0] + 200, PLOT_WINDOW_CORNER[1] + 50 + (line * 25)], "black");
+			}
 		}
 	};
 });

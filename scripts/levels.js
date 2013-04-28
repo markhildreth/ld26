@@ -12,8 +12,10 @@ define(function() {
 	var levels = [
 		{
 			introPlot : [
-				{c : MAN, t : "What's up?"},
-				{c : ROBOT, t : "NM, you?"}
+				{c : ROBOT, t : ["Dear diary..."]},
+				{c : ROBOT, t : ["It's been four days since I recieved any word", "from headquarters. I'm beginning to lose faith"]},
+				{c : MAN, t : ["What's up?"]},
+				{c : ROBOT, t : ["NM, you?"]}
 			],
 			data : [
 				'                    ',
@@ -22,13 +24,13 @@ define(function() {
 				'__S_________________'
 			],
 			outroPlot : [
-				{c : MAN, t : "So you think you're something special?"},
-				{c : ROBOT, t : "Yeah, what's your point?"}
+				{c : MAN, t : ["So you think you're something special?"]},
+				{c : ROBOT, t : ["Yeah, what's your point?"]}
 			]
 		},
 		{
 			introPlot : [
-				{c : MAN, t : "Alright smart guy, figure this one out"}
+				{c : MAN, t : ["Alright smart guy, figure this one out"]}
 			],
 			data : [
 				'     _RRR_          ',
@@ -38,7 +40,7 @@ define(function() {
 				'__S____S______E_____'
 			],
 			outroPlot : [
-				{c : ROBOT, t : 'VICTORY!'}
+				{c : ROBOT, t : ["VICTORY!"]}
 			]
 		}
 	];
