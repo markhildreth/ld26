@@ -590,7 +590,7 @@ define(function() {
 			],
 			outroPlot : [
 				{c : MR_ROBOT, t : [
-					"I assumel you were unable to feed Mr Spud?"
+					"I assumed you were unable to feed Mr Spud?"
 				]},
 				{c : GENERAL, t : [
 					"I was more than unable, I was unwilling!"
