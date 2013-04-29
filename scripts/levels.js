@@ -980,12 +980,9 @@ define(function() {
 			outroPlot : [
 				{c : GENERAL, t : [
 					"That just about sums it up perfectly. But",
-					"I have a plan."
+					"I have a plan. One that DOES NOT involve",
+					"fast food!"
 				]},
-				{c : HENDRICKS, t : [
-					"...okay, it just so happens, I have a second plan.",
-					"One that DOES NOT involve fast food!"
-				]}
 			]
 		},
 		{
