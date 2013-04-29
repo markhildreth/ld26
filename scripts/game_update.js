@@ -23,7 +23,9 @@ define(function() {
 			}
 			if (g.plotState === plotLength - 1) {
 				if (g.state === 'outro') {
-					g.state = 'level_complete';
+					if (g.levelNumber !== 21) {
+						g.state = 'level_complete';
+					}
 				} else if (g.state === 'intro') {
 					g.state = 'game';
 				}

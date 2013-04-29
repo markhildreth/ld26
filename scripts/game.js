@@ -36,7 +36,9 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 		draw : function(g, ctx, ass) {
 			game_draw.drawBackground(g, ctx);
 
-			game_draw.drawGame(g, ctx);
+			if (g.state !== 'outro' || g.levelNumber != 21) {
+				game_draw.drawGame(g, ctx);
+			}
 
 			if (g.state === 'intro' || g.state === 'outro') {
 				game_draw.drawPlot(g, ctx);

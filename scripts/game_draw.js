@@ -126,8 +126,10 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			// TODO: Make this better
 			gfx.drawRectangle(ctx, PLOT_WINDOW_CORNER, PLOT_WINDOW_WIDTH, PLOT_WINDOW_HEIGHT, "white");
 			var faceDest = [240, 150];
-			gfx.draw(ctx, currentPlot.c.face, faceDest);
-			gfx.drawText(ctx, currentPlot.c.name + ":", [PLOT_WINDOW_CORNER[0] + 170, PLOT_WINDOW_CORNER[1] + 20], "black");
+			if (currentPlot.c) {
+				gfx.draw(ctx, currentPlot.c.face, faceDest);
+				gfx.drawText(ctx, currentPlot.c.name + ":", [PLOT_WINDOW_CORNER[0] + 170, PLOT_WINDOW_CORNER[1] + 20], "black");
+			}
 			for (var line = 0; line < currentPlot.t.length; line = line + 1) {
 				gfx.drawText(ctx, currentPlot.t[line], [PLOT_WINDOW_CORNER[0] + 180, PLOT_WINDOW_CORNER[1] + 50 + (line * 25)], "black");
 			}
