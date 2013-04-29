@@ -55,8 +55,6 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 				if (g.state === 'game') {
 					keydown[KEY_R] = function(g) { g.actions.restartLevel = true; }
 				}
-				keydown[KEY_S] = function(g) { g.actions.skipToOutro = true; };
-				keydown[KEY_N] = function(g) { g.actions.skipLevel = true; };
 			}
 
 			return lookup;
