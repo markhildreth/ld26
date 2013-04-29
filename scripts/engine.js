@@ -4,7 +4,10 @@ define(['graphics', 'assets', 'events'], function(gfx, assets, events) {
 	var requestAnimationFrame = window.requestAnimationFrame ||
 			window.mozRequestAnimationFrame ||
 			window.webkitRequestAnimationFrame ||
-			window.msRequestAnimationFrame;
+			window.msRequestAnimationFrame ||
+			function(/* function */ callback){
+                window.setTimeout(callback, 1000 / 60);
+            };
 
 	return {
 		run : function(game, canvas) {
