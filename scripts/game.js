@@ -25,7 +25,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 					moveRight : false,
 					skipLevel : false,
 					skipToOutro : false,
-					restartLevel : false,
+					restartLevel : false
 				}
 			};
 			levels.loadLevel(g, 0);
@@ -53,7 +53,7 @@ define(['graphics', 'levels', 'game_draw', 'game_update'], function(gfx, levels,
 				keydown[KEY_LEFT] = function(g) { g.actions.moveLeft = true; };
 				keydown[KEY_RIGHT] = function(g) { g.actions.moveRight = true; };
 				if (g.state === 'game') {
-					keydown[KEY_R] = function(g) { g.actions.restartLevel = true; }
+					keydown[KEY_R] = function(g) { g.actions.restartLevel = true; };
 				}
 			}
 

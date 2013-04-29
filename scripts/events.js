@@ -3,13 +3,21 @@ define(function() {
 
 	var actions = [];
 
-	window.addEventListener('keydown', function(evt) {
+	var onKeyDown = function(evt) {
 		actions.push({'type' : 'keydown', 'key' : evt.keyCode});
-	}, true);
+	};
 
-	window.addEventListener('keyup', function(evt) {
+	var onKeyUp = function(evt) {
 		actions.push({'type' : 'keyup', 'key' : evt.keyCode});
-	}, true);
+	};
+
+	if (window.addEventListener) {
+		window.addEventListener('keydown', onKeyDown, true);
+		window.addEventListener('keyup', onKeyUp, true);
+	} else {
+		window.attachEvent('keydown', onKeyDown);
+		window.attachEvent('keyup', onKeyDown);
+	}
 
 	return {
 		each : function(f) {

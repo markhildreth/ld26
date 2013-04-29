@@ -3,8 +3,8 @@ define(function() {
 	ANIMATION_TIMES = {
 		'walk' : 300,
 		'spring' : 200,
-		'fall' : 200,
-	}
+		'fall' : 200
+	};
 
 	return {
 		reversePlot : function(g) {
@@ -44,7 +44,7 @@ define(function() {
 				destX : g.player.x - 1,
 				destY : g.player.y,
 				start : start,
-				stop : start + ANIMATION_TIMES['walk'],
+				stop : start + ANIMATION_TIMES.walk
 			};
 		},
 
@@ -58,7 +58,7 @@ define(function() {
 				destX : g.player.x + 1,
 				destY : g.player.y,
 				start : start,
-				stop : start + ANIMATION_TIMES['walk'],
+				stop : start + ANIMATION_TIMES.walk
 			};
 		},
 
@@ -89,7 +89,7 @@ define(function() {
 					destX : g.player.x + xOffset,
 					destY : g.player.y + 2,
 					start : start,
-					stop : start + ANIMATION_TIMES['spring'],
+					stop : start + ANIMATION_TIMES.spring
 				};
 				info.type = 'ground';
 				g.level.trapsRemaining = g.level.trapsRemaining - 1;
@@ -99,7 +99,7 @@ define(function() {
 					destX : g.player.x,
 					destY : g.player.y - 1,
 					start : start,
-					stop : start + ANIMATION_TIMES['fall'],
+					stop : start + ANIMATION_TIMES.fall
 				};
 				info.type = 'ground';
 				g.level.trapsRemaining = g.level.trapsRemaining - 1;
@@ -114,7 +114,7 @@ define(function() {
 					destX : g.player.x + xOffset,
 					destY : g.player.y,
 					start : start,
-					stop : start + ANIMATION_TIMES['walk'],
+					stop : start + ANIMATION_TIMES.walk
 				};
 				info.type = 'air';
 				g.level.trapsRemaining = g.level.trapsRemaining - 1;
@@ -139,7 +139,7 @@ define(function() {
 					destX : g.player.x,
 					destY : g.player.y - 1,
 					start: start,
-					stop: start + ANIMATION_TIMES['fall'],
+					stop: start + ANIMATION_TIMES.fall
 				};
 			}
 		}

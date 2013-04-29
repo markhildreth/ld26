@@ -44,8 +44,8 @@ define(['assets', 'graphics'], function(assets, gfx) {
 			var x = startX + ((endX - startX) * completion);
 			var y = startY - ((startY - endY) * completion);
 			return [x, y];
-		},
-	}
+		}
+	};
 
 
 	return {
@@ -100,7 +100,7 @@ define(['assets', 'graphics'], function(assets, gfx) {
 
 			// Game coordinates
 			var playerLoc;
-			if (g.animation != null) {
+			if (g.animation) {
 				var animationFunc = ANIMATIONS[g.animation.type];
 				var ticks = +new Date();
 				var completion = (ticks - g.animation.start) / (g.animation.stop - g.animation.start);
